@@ -33,6 +33,10 @@
 //
 // ===========================
 // TODO #1: Use app.jsx.jsx file. Apply React Router
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Registration from "./pages/Registration";
 // ===========================
 //
 // Goal: Add routing for three pages: Home, About, Registration
