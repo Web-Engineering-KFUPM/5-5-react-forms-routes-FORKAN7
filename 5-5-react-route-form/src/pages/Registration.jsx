@@ -2,15 +2,41 @@ import { useState } from "react";
 
 export default function Registration() {
   const [email, setEmail] = useState("");
-
   const [errors, setErrors] = useState({});
+  const [password, setPassword] = useState("");
+  const [gender, setGender] = useState("");
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    {/*Form validations*/}
+    { /*Form validations*/ }
+    // Email validation
+  if (!email.trim()) {
+    nextErrors.email = "Email is required";
+  } else if (!(email.includes("@") && email.endsWith(".com"))) {
+    nextErrors.email = "Enter a valid email address";
+  }
+  // Password validation
+  if (!password.trim()) {
+    nextErrors.password = "Password is required";
+  }
+
+  // Gender validation
+  if (!gender) {
+    nextErrors.gender = "Please select your gender";
+  }
+
+  setErrors(nextErrors);
+
+  if (Object.keys(nextErrors).length > 0) return;
+
 
     // alert(`Regiteration submit: ${email}`);
-  };
+    alert(`Registration submit: ${email}`);
+
+  setEmail("");
+  setPassword("");
+  setGender("");
+  }
 
   return (
     <section>
